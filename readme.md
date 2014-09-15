@@ -48,6 +48,7 @@ var Student = function(name, height, age){
 	this.studying = true;
 }
 Student.prototype = new Person();
+Student.prototype.constructor = Student;
 
 ```
 
