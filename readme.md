@@ -44,6 +44,9 @@ Student.prototype = new Person();
 4. Add methods to `Student` called `study`, and `stopStudy` to toggle `studying`
 
 ```
+Student.prototype.study = function(){
+	studying = true;
+}
 Student.prototype.stopStudy = function(){
 	studying = false;
 }
