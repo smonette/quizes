@@ -3,7 +3,7 @@
 
 ##Questions
 
-1. Make a `Person` constructor with attributes: `name:string`, `height:string`, `age:number`, `sleeping:boolean`.
+Make a `Person` constructor with attributes: `name:string`, `height:string`, `age:number`, `sleeping:boolean`.
 
 ```
 var Person = function(name, height, age) {
@@ -15,22 +15,30 @@ var Person = function(name, height, age) {
 
 ```
 
-2. Add prototype methods to `person`: `eat`, `sleep`, and `wakeUp`. (The `sleep` and `wakeUp` methods should toggle `sleeping` to `true/false`, and `eat` should return an eating noise.)
+Add prototype methods to `person`: `eat`, `sleep`, and `wakeUp`. (The `sleep` and `wakeUp` methods should toggle `sleeping` to `true/false`, and `eat` should return an eating noise.)
 
 ```
 Person.prototype.eat = function(){
 	console.log("Om nom nom");
 }
 Person.prototype.sleep = function(){
-	sleeping = true;
+	if(this.sleeping === false) {
+		this.sleeping = true;
+	} else {
+		alert(this.name + " is already sleeping.")
+	}
 }
 Person.prototype.wakeup = function(){
-	sleeping = false;
+	if(this.sleeping === true) {
+		this.sleeping = false;
+	} else {
+		alert(this.name + " is already awake.")
+	}
 }
 ```
 
 
-3. Make a `Student` prototype that inherits from `person` and has the additional attribute of `studying:boolean`.
+Make a `Student` prototype that inherits from `person` and has the additional attribute of `studying:boolean`.
 
 ```
 var Student = function(name, height, age){
@@ -44,24 +52,32 @@ Student.prototype = new Person();
 ```
 
 
-4. Add methods to `Student` called `study`, and `stopStudy` to toggle `studying`
+Add methods to `Student` called `study`, and `stopStudy` to toggle `studying`
 
 ```
 Student.prototype.study = function(){
-	studying = true;
+	if(this.studying === false) {
+		this.studying = true;
+	} else {
+		alert(this.name + " is already studying.")
+	}
 }
 Student.prototype.stopStudy = function(){
-	studying = false;
+	if(this.studying === true) {
+		this.studying = false;
+	} else {
+		alert(this.name + " already stopped studying.")
+	}
 }
 
 ```
 
-5. Override the `sleep` method on `student` to only run `sleep` if `studying` is `false`.
+Override the `sleep` method on `student` to only run `sleep` if `studying` is `false`.
 
 ```
 Student.prototype.sleep = function(){
-	if (studying === false){
-		sleeping = true;
+	if ((this.studying === false) && (this.sleeping === false)){
+		this.sleeping = true;
 	} else {
 		alert("Can't sleep, must study!")
 	}
