@@ -6,11 +6,11 @@
 1. Make a `Person` constructor with attributes: `name:string`, `height:string`, `age:number`, `sleeping:boolean`.
 
 ```
-var Person = function(name, height, age, sleeping) {
+var Person = function(name, height, age) {
 	this.name = name;
 	this.height = height;
 	this.age = age;
-	this.sleeping = sleeping;
+	this.sleeping = true;
 }
 
 ```
@@ -33,8 +33,11 @@ Person.prototype.wakeup = function(){
 3. Make a `Student` prototype that inherits from `person` and has the additional attribute of `studying:boolean`.
 
 ```
-var Student = function(studying){
-	this.studying = studying;
+var Student = function(name, height, age){
+	this.name = name;
+	this.height = height;
+	this.age = age;
+	this.studying = true;
 }
 Student.prototype = new Person();
 
